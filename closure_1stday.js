@@ -36,4 +36,46 @@ console.log(counter());
 console.log(counter());
 
 
+// testing the projects code 
+function exert(val){
+   return {
+    toBe: function (otherVal){
+        if( val!==otherVal){
+            throw new Error('Not equal')
+        }
+        return true;
+    },
+    
+    nottoBe: function(otherVal){
+              if (val==otherVal){
+                throw new Error('Equal')
+              }
+              return true
+    } 
+}
+ 
+}
+
+const value =5;
+const assertion=exert(value);
+
+
+  
+ try {
+     assertion.toBe(5);
+     console.log('test pass for toBe');
+ 
+ }  catch(error) {
+     console.log('test failed for toBe',error.message);
+ 
+ }
+ 
+ try {
+     assertion.nottoBe(20);
+     console.log('test pass for nottoBe')
+ }
+ catch(error) {
+     console.log('test failed for nottoBe',error.message);
+ }
+ 
 
